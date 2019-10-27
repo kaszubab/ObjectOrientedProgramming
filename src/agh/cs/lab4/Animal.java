@@ -1,4 +1,4 @@
-package agh.cs.lab3;
+package agh.cs.lab4;
 
 import agh.cs.lab2.MapDirection;
 import agh.cs.lab2.MoveDirection;
@@ -9,8 +9,23 @@ public class Animal {
 
     private MapDirection direction = MapDirection.NORTH;
     private Vector2d position = new Vector2d(2,2);
+    private IWorldMap map;
+
+    public Animal(IWorldMap map) {
+        this.map = map;
+    }
+
+    public Animal(IWorldMap map, Vector2d initialPosition) {
+        this.map = map;
+        this.position = initialPosition;
+    }
+
+    public Vector2d getPosition() {
+        return new Vector2d(0,0).add(this.position);
+    }
 
     public void move(MoveDirection direction) {
+
 
         switch (direction) {
             case LEFT:
@@ -20,12 +35,12 @@ public class Animal {
                 this.direction = this.direction.next();
                 break;
             case FORWARD:
-                if (this.position.add(this.direction.toUnitVector()).precedes(new Vector2d(4,4))) {
+                if (this.map.canMoveTo(this.position.add(this.direction.toUnitVector()))) {
                     this.position = this.position.add(this.direction.toUnitVector());
                 }
                 break;
             case BACKWARD:
-                if (this.position.subtract(this.direction.toUnitVector()).follows(new Vector2d(0,0))) {
+                if (this.map.canMoveTo(this.position.subtract(this.direction.toUnitVector()))) {
                     this.position = this.position.subtract(this.direction.toUnitVector());
                 }
                 break;
@@ -34,6 +49,17 @@ public class Animal {
     }
 
     public String toString() {
-        return "Position " + position +" direction " + direction;
+        // lab 3 return "Position " + position +" direction " + direction;
+        switch (this.direction) {
+            case SOUTH:
+                return "S";
+            case NORTH:
+                return "N";
+            case WEST:
+                return "W";
+            case EAST:
+                return "E";
+        }
+        return null;
     }
 }

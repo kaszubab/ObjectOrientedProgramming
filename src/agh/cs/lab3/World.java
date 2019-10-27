@@ -1,6 +1,7 @@
 package agh.cs.lab3;
 
 import agh.cs.lab2.MoveDirection;
+import agh.cs.lab4.Animal;
 
 
 public class World {
@@ -12,5 +13,7 @@ public class World {
             myAnimal.move(x);
         }
         System.out.println(myAnimal);
+
+
     }
 }

@@ -1,6 +1,6 @@
 package test;
 
-import main.MapDirection;
+import agh.cs.lab2.MapDirection;
 import org.junit.Assert;
 import org.junit.Test;
 
