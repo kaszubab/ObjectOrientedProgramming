@@ -7,7 +7,7 @@ import java.util.LinkedList;
 public class OptionParser {
     private MoveDirection [] validArgTable;
 
-    OptionParser(String [] name) {
+    public OptionParser(String [] name) {
         LinkedList<MoveDirection> list = new LinkedList<>();
         for (String x : name) {
             switch (x) {

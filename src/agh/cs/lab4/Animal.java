@@ -16,8 +16,8 @@ public class Animal {
     }
 
     public Animal(IWorldMap map, Vector2d initialPosition) {
-        this.map = map;
         this.position = initialPosition;
+        this.map = map;
     }
 
     public Vector2d getPosition() {
@@ -25,7 +25,6 @@ public class Animal {
     }
 
     public void move(MoveDirection direction) {
-
 
         switch (direction) {
             case LEFT:
