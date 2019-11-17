@@ -3,9 +3,10 @@ package agh.cs.lab4;
 import agh.cs.lab2.MapDirection;
 import agh.cs.lab2.MoveDirection;
 import agh.cs.lab2.Vector2d;
+import agh.cs.lab5.IMapElement;
 
 
-public class Animal {
+public class Animal implements IMapElement {
 
     private MapDirection direction = MapDirection.NORTH;
     private Vector2d position = new Vector2d(2,2);
