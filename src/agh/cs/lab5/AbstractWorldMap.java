@@ -7,10 +7,12 @@ import agh.cs.lab4.IWorldMap;
 import agh.cs.lab4.MapVisualizer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public abstract class  AbstractWorldMap implements IWorldMap {
-    protected List<IMapElement> elementList = new ArrayList<>();
+    protected List<IMapElement> animalList = new ArrayList<>();
+    protected HashMap<Vector2d,IMapElement> elementMap = new HashMap<>();
     protected MapVisualizer mapVis;
 
     @Override
@@ -24,24 +26,24 @@ public abstract class  AbstractWorldMap implements IWorldMap {
 
     public boolean place(Animal animal) {
         if (!isOccupied(animal.getPosition())) {
-            elementList.add(animal);
+            animalList.add(animal);
+            elementMap.put(animal.getPosition(),animal);
             return true;
         }
-        if(objectAt(animal.getPosition()) instanceof Grass) {
-            elementList.add(animal);
+        if (!(objectAt(animal.getPosition()) instanceof Animal)) {
+            animalList.add(animal);
+            elementMap.put(animal.getPosition(),animal);
             return true;
         }
-        return false;
+        throw new IllegalArgumentException(" Position " + animal.getPosition() + " is already occupied");
     }
 
     public void run(MoveDirection[] directions) {
-        int j = 0;
-        List<Animal> animalList= new ArrayList<>();
-        for (IMapElement x : elementList) {
-            if (x instanceof Animal) animalList.add((Animal) x);
-        }
         for (int i = 0; i < directions.length; i++) {
-            animalList.get(i % animalList.size()).move(directions[i]);
+            Animal animal = (Animal) animalList.get(i % animalList.size());
+            elementMap.remove(animal.getPosition());
+            animal.move(directions[i]);
+            elementMap.put(animal.getPosition(), animal);
         }
     }
 
@@ -49,14 +51,10 @@ public abstract class  AbstractWorldMap implements IWorldMap {
     protected abstract Vector2d maxPoint();
 
     public Object objectAt(Vector2d position) {
-        for (IMapElement x : elementList) {
-            if (x.getPosition().equals(position)) return x;
-        }
-            return null;
+        return elementMap.get(position);
     }
 
     public String toString() {
-
         return mapVis.draw(minPoint(), maxPoint());
     }
 

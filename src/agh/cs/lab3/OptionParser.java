@@ -27,9 +27,11 @@ public class OptionParser {
                 case "l":
                     list.add(MoveDirection.LEFT);
                     break;
+                default:
+                    throw new IllegalArgumentException("argument " + x + " is not legal move specification");
+
             }
         }
-        int i = 0;
         validArgTable = list.toArray(new MoveDirection[0]);
     }
 

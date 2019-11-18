@@ -19,7 +19,7 @@ public class GrassField  extends AbstractWorldMap{
         for (int i = 0; i < grassFieldQuantity; ) {
             Grass newGrass = new Grass(new Vector2d(generator.nextInt(range),generator.nextInt(range)));
             if (!(objectAt(newGrass.getPosition()) instanceof Grass)) {
-                elementList.add(newGrass);
+                elementMap.put(newGrass.getPosition(), newGrass);
                 i++;
             }
         }
@@ -34,13 +34,8 @@ public class GrassField  extends AbstractWorldMap{
     }
 
     @Override
-    public boolean place(Animal animal) {
-        return super.place(animal);
-    }
-
-    @Override
     public Object objectAt(Vector2d position) {
-        for (IMapElement x : elementList) {
+        for (IMapElement x : animalList) {
             if (x.getPosition().equals(position) && (x instanceof Animal)) return x;
         }
         return super.objectAt(position);
@@ -48,24 +43,20 @@ public class GrassField  extends AbstractWorldMap{
 
     @Override
     protected Vector2d minPoint() {
-        int minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE;
-        for (IMapElement x : elementList) {
-            Vector2d vector = x.getPosition();
-            if (minX > vector.x) minX = vector.x;
-            if (minY > vector.y) minY = vector.y;
+        Vector2d minVector = new Vector2d(Integer.MAX_VALUE,Integer.MAX_VALUE);
+        for (Vector2d x : elementMap.keySet()) {
+            minVector = minVector.lowerLeft(x);
         }
-        return new Vector2d(minX, minY);
+        return minVector;
     }
 
     @Override
     protected Vector2d maxPoint() {
-        int maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE;
-        for (IMapElement x : elementList) {
-            Vector2d vector = x.getPosition();
-            if (maxX < vector.x) maxX = vector.x;
-            if (maxY < vector.y) maxY = vector.y;
+        Vector2d minVector = new Vector2d(Integer.MIN_VALUE,Integer.MIN_VALUE);
+        for (Vector2d x : elementMap.keySet()) {
+            minVector = minVector.upperRight(x);
         }
-        return new Vector2d(maxX, maxY);
+        return minVector;
     }
 
 }

@@ -1,3 +1,5 @@
+import agh.cs.lab2.MapDirection;
+import agh.cs.lab2.MoveDirection;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab3.OptionParser;
 import agh.cs.lab4.Animal;
@@ -9,8 +11,29 @@ import org.junit.Test;
 public class GrassFieldTest {
     @Test
     public void testMap() {
+
         IWorldMap map = new GrassField(10);
         String [] moves = new String[20];
+        for (int i = 0; i < 20; i+=4) {
+            moves[i] =  "f";
+            moves[i+1] =  "r";
+            moves[i+2] =  "f";
+            moves[i+3] =  "l";
+        }
+        Animal myAnimal1 = new Animal(map);
+        Animal myAnimal2 = new Animal(map);
+        map.place(myAnimal1);
+        MoveDirection [] initialMove = {MoveDirection.FORWARD};
+        map.run(initialMove);
+        map.place(myAnimal2);
+        map.run(new OptionParser(moves).getValidArgTable());
+        Assert.assertEquals(myAnimal1.toString(),"N");
+        Assert.assertEquals(myAnimal1.getPosition(),new Vector2d(2,13));
+        Assert.assertEquals(myAnimal2.toString(),"N");
+        Assert.assertEquals(myAnimal2.getPosition(),new Vector2d(2,2));
+
+        map = new GrassField(10);
+        moves = new String[20];
         for (int i = 0; i < 20; i+=4) {
             moves[i] =  "f";
             moves[i+1] =  "r";
