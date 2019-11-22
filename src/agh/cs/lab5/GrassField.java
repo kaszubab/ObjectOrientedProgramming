@@ -1,13 +1,9 @@
 package agh.cs.lab5;
 
-import agh.cs.lab2.MoveDirection;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab4.Animal;
-import agh.cs.lab4.IWorldMap;
 import agh.cs.lab4.MapVisualizer;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class GrassField  extends AbstractWorldMap{
@@ -39,6 +35,22 @@ public class GrassField  extends AbstractWorldMap{
             if (x.getPosition().equals(position) && (x instanceof Animal)) return x;
         }
         return super.objectAt(position);
+    }
+
+    @Override
+    public boolean place(Animal animal) {
+        try {
+            return super.place(animal);
+        }
+        catch (Exception e) {
+            if (e instanceof IllegalArgumentException) {
+                if (!(objectAt(animal.getPosition()) instanceof Animal)) {
+                    animalList.add(animal);
+                    elementMap.put(animal.getPosition(), animal);
+                }
+            }
+            throw new IllegalArgumentException("The position "+ animal.getPosition() + " is already occupied");
+        }
     }
 
     @Override

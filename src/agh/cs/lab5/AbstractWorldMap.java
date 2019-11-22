@@ -30,11 +30,6 @@ public abstract class  AbstractWorldMap implements IWorldMap {
             elementMap.put(animal.getPosition(),animal);
             return true;
         }
-        if (!(objectAt(animal.getPosition()) instanceof Animal)) {
-            animalList.add(animal);
-            elementMap.put(animal.getPosition(),animal);
-            return true;
-        }
         throw new IllegalArgumentException(" Position " + animal.getPosition() + " is already occupied");
     }
 

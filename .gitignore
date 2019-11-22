@@ -1,5 +1,5 @@
-.idea
-/lib
-/out
-.gitattributes
 lab1.iml
+lib/
+out/
+.idea/
+
