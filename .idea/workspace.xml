@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e47cd00f-ae70-4812-ac8c-295cc124cb38" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab2/Vector2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab2/Vector2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab3/OptionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab3/OptionParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab3/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab3/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab5/AbstractWorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab5/AbstractWorldMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab5/GrassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab5/GrassField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/GrassFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/GrassFieldTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="e47cd00f-ae70-4812-ac8c-295cc124cb38" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,8 +27,8 @@
       <file leaf-file-name="AbstractWorldMap.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/agh/cs/lab5/AbstractWorldMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="278">
+              <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1627#1628#0" expanded="true" />
@@ -179,9 +171,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="950" />
-    <option name="width" value="979" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
@@ -491,7 +483,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -503,7 +494,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32193732" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32193732" />
       <window_info anchor="bottom" id="CheckStyle" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32905984" />
       <window_info id="Capture Tool" order="6" />
@@ -976,8 +967,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/agh/cs/lab5/AbstractWorldMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="278">
+          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1627#1628#0" expanded="true" />
