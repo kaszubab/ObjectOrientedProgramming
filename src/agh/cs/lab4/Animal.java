@@ -4,6 +4,9 @@ import agh.cs.lab2.MapDirection;
 import agh.cs.lab2.MoveDirection;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab5.IMapElement;
+import agh.cs.lab7.IPositionChangeObserver;
+
+import java.util.LinkedList;
 
 
 public class Animal implements IMapElement {
@@ -11,14 +14,31 @@ public class Animal implements IMapElement {
     private MapDirection direction = MapDirection.NORTH;
     private Vector2d position = new Vector2d(2,2);
     private IWorldMap map;
+    private LinkedList<IPositionChangeObserver> observerList;
 
     public Animal(IWorldMap map) {
         this.map = map;
+        observerList = new LinkedList<>();
     }
 
     public Animal(IWorldMap map, Vector2d initialPosition) {
         this.position = initialPosition;
         this.map = map;
+        observerList = new LinkedList<>();
+    }
+
+    public void addObserver(IPositionChangeObserver observer) {
+        this.observerList.add(observer);
+    }
+
+    public void removeObserver(IPositionChangeObserver observer) {
+        observerList.remove(observer);
+    }
+
+    private void positionChanged(Vector2d oldPosition) {
+        for (IPositionChangeObserver x : observerList) {
+            x.positionChanged(oldPosition, this.position);
+        }
     }
 
     public Vector2d getPosition() {
@@ -27,6 +47,7 @@ public class Animal implements IMapElement {
 
     public void move(MoveDirection direction) {
 
+        Vector2d oldPosition = this.position;
         switch (direction) {
             case LEFT:
                 this.direction = this.direction.previous();
@@ -45,6 +66,8 @@ public class Animal implements IMapElement {
                 }
                 break;
         }
+
+        positionChanged(oldPosition);
 
     }
 

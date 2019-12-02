@@ -5,14 +5,17 @@ import agh.cs.lab2.Vector2d;
 import agh.cs.lab4.Animal;
 import agh.cs.lab4.IWorldMap;
 import agh.cs.lab4.MapVisualizer;
+import agh.cs.lab7.IPositionChangeObserver;
+import agh.cs.lab7.MapBoundary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public abstract class  AbstractWorldMap implements IWorldMap {
+public abstract class  AbstractWorldMap implements IWorldMap, IPositionChangeObserver {
     protected List<IMapElement> animalList = new ArrayList<>();
     protected HashMap<Vector2d,IMapElement> elementMap = new HashMap<>();
+    protected MapBoundary mBoundary = new MapBoundary();
     protected MapVisualizer mapVis;
 
     @Override
@@ -28,6 +31,9 @@ public abstract class  AbstractWorldMap implements IWorldMap {
         if (!isOccupied(animal.getPosition())) {
             animalList.add(animal);
             elementMap.put(animal.getPosition(),animal);
+            mBoundary.addObject(animal.getPosition());
+            animal.addObserver(mBoundary);
+            animal.addObserver(this);
             return true;
         }
         throw new IllegalArgumentException(" Position " + animal.getPosition() + " is already occupied");
@@ -36,14 +42,24 @@ public abstract class  AbstractWorldMap implements IWorldMap {
     public void run(MoveDirection[] directions) {
         for (int i = 0; i < directions.length; i++) {
             Animal animal = (Animal) animalList.get(i % animalList.size());
-            elementMap.remove(animal.getPosition());
+
             animal.move(directions[i]);
-            elementMap.put(animal.getPosition(), animal);
+
         }
     }
 
-    protected abstract Vector2d minPoint();
-    protected abstract Vector2d maxPoint();
+    @Override
+    public void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
+        IMapElement element = elementMap.remove(oldPosition);
+        elementMap.put(newPosition,element);
+    }
+
+    protected Vector2d minPoint() {
+        return new Vector2d(mBoundary.xMin().x,mBoundary.yMin().y);
+    };
+    protected Vector2d maxPoint() {
+        return new Vector2d(mBoundary.xMax().x,mBoundary.yMax().y);
+    }
 
     public Object objectAt(Vector2d position) {
         return elementMap.get(position);

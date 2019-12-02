@@ -16,6 +16,7 @@ public class GrassField  extends AbstractWorldMap{
             Grass newGrass = new Grass(new Vector2d(generator.nextInt(range),generator.nextInt(range)));
             if (!(objectAt(newGrass.getPosition()) instanceof Grass)) {
                 elementMap.put(newGrass.getPosition(), newGrass);
+                mBoundary.addObject(newGrass.getPosition());
                 i++;
             }
         }
@@ -45,8 +46,11 @@ public class GrassField  extends AbstractWorldMap{
         catch (Exception e) {
             if (e instanceof IllegalArgumentException) {
                 if (!(objectAt(animal.getPosition()) instanceof Animal)) {
+                    animal.addObserver(this);
+                    animal.addObserver(mBoundary);
                     animalList.add(animal);
                     elementMap.put(animal.getPosition(), animal);
+                    mBoundary.addObject(animal.getPosition());
                 }
             }
             throw new IllegalArgumentException("The position "+ animal.getPosition() + " is already occupied");
