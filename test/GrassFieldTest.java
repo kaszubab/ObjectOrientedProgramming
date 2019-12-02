@@ -7,6 +7,7 @@ import agh.cs.lab4.IWorldMap;
 import agh.cs.lab5.GrassField;
 import org.junit.Assert;
 import org.junit.Test;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 public class GrassFieldTest {
     @Test

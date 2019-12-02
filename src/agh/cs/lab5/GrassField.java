@@ -57,22 +57,5 @@ public class GrassField  extends AbstractWorldMap{
         }
     }
 
-    @Override
-    protected Vector2d minPoint() {
-        Vector2d minVector = new Vector2d(Integer.MAX_VALUE,Integer.MAX_VALUE);
-        for (Vector2d x : elementMap.keySet()) {
-            minVector = minVector.lowerLeft(x);
-        }
-        return minVector;
-    }
-
-    @Override
-    protected Vector2d maxPoint() {
-        Vector2d minVector = new Vector2d(Integer.MIN_VALUE,Integer.MIN_VALUE);
-        for (Vector2d x : elementMap.keySet()) {
-            minVector = minVector.upperRight(x);
-        }
-        return minVector;
-    }
 
 }
