@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e47cd00f-ae70-4812-ac8c-295cc124cb38" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab5/GrassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab5/GrassField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/GrassFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/GrassFieldTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="e47cd00f-ae70-4812-ac8c-295cc124cb38" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -112,8 +109,8 @@
       <file leaf-file-name="GrassField.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/agh/cs/lab5/GrassField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+            <state relative-caret-position="484">
+              <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -456,9 +453,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_lab1 - 2019.12.02 at 14h 50m 33s.xml">
-      <configuration name="All in lab1" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_lab1 - 2019.12.02 at 14h 50m 36s.xml">
       <configuration name="All in lab1" configurationId="JUnit" />
     </history-entry>
@@ -486,10 +480,12 @@
     <history-entry file="All_in_lab1 - 2019.12.02 at 15h 32m 40s.xml">
       <configuration name="All in lab1" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_lab1 - 2019.12.02 at 15h 33m 21s.xml">
+      <configuration name="All in lab1" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -500,7 +496,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32193732" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32193732" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CheckStyle" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32905984" />
@@ -939,8 +935,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/agh/cs/lab5/GrassField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+        <state relative-caret-position="484">
+          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
